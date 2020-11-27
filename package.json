@@ -1,0 +1,53 @@
+{
+	"name": "typescript-express",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "npm run tsc && npm run sass && npm run webpack",
+		"dev": "concurrently \"tsc --watch\" \"npm run dev:sass\" \"npm run dev:build\" \"npm run dev:start\"",
+		"dev:build": "webpack --config=webpack.development.config.js --watch",
+		"dev:sass": "sass --watch src/frontend/styles/styles.scss build/frontend/styles/styles.css",
+		"dev:start": "nodemon build/server/index",
+		"sass": "sass src/frontend/styles/styles.scss build/frontend/styles/styles.css",
+		"start": "node build/server/index",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"tsc": "tsc",
+		"webpack": "webpack --config=webpack.production.config.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.17.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.12.9",
+		"@babel/plugin-proposal-class-properties": "^7.12.1",
+		"@babel/plugin-transform-runtime": "^7.12.1",
+		"@babel/preset-env": "^7.12.7",
+		"@babel/preset-react": "^7.12.7",
+		"@babel/preset-typescript": "^7.12.7",
+		"@types/express": "^4.17.9",
+		"@types/jest": "^26.0.15",
+		"@types/node": "^14.14.10",
+		"@types/react": "^17.0.0",
+		"@types/react-dom": "^17.0.0",
+		"@types/react-test-renderer": "^17.0.0",
+		"babel-jest": "^26.6.3",
+		"babel-loader": "^8.2.2",
+		"concurrently": "^5.3.0",
+		"css-loader": "^5.0.1",
+		"jest": "^26.6.3",
+		"mini-css-extract-plugin": "^1.3.1",
+		"nodemon": "^2.0.6",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-test-renderer": "^17.0.1",
+		"sass": "^1.29.0",
+		"sass-loader": "^10.1.0",
+		"typescript": "^4.1.2",
+		"webpack": "^5.8.0",
+		"webpack-cli": "^4.2.0"
+	}
+}
