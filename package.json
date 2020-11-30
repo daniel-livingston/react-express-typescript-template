@@ -7,8 +7,8 @@
 		"build": "tsc && npm run webpack",
 		"dev": "concurrently \"tsc --watch\" \"npm run dev:build\" \"npm run dev:start\"",
 		"dev:build": "webpack --config=webpack.development.config.js --watch",
-		"dev:start": "nodemon build/index",
-		"start": "node build/index",
+		"dev:start": "nodemon build/server/index",
+		"start": "node build/server/index",
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"webpack": "webpack --config=webpack.production.config.js"
