@@ -5,7 +5,7 @@ module.exports = () => {
 	return {
 		mode: "development",
 		entry: {
-			index: { import: "./build/frontend/index.jsx" },
+			index: { import: "./src/frontend/index.tsx" },
 		},
 		output: {
 			path: path.resolve(__dirname, "dist"),
@@ -15,18 +15,18 @@ module.exports = () => {
 		module: {
 			rules: [
 				{
-					test: /\.jsx?$/,
+					test: /\.tsx?$/,
 					exclude: /node_modules/,
 					use: ["babel-loader"],
 				},
 				{
-					test: /\.css$/,
-					use: [MiniCssExtractPlugin.loader, "css-loader"],
+					test: /\.s(a|c)ss$/,
+					use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
 				},
 			],
 		},
 		resolve: {
-			extensions: [".js", ".jsx"],
+			extensions: [".ts", ".tsx", ".js", ".jsx"],
 		},
 		devtool: "eval-cheap-module-source-map",
 	};
